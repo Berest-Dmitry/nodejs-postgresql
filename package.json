@@ -1,4 +1,5 @@
 {
+  
   "name": "nodejs-postgresql",
   "version": "0.0.0",
   "private": true,
@@ -9,6 +10,8 @@
     "cookie-parser": "^1.4.6",
     "debug": "^2.6.9",
     "express": "^4.16.4",
+    "jquery": "^3.6.1",
+    "jsdom": "^20.0.2",
     "morgan": "^1.9.1",
     "pg": "^8.8.0"
   }

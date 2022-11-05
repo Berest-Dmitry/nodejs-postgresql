@@ -1,6 +1,7 @@
 ﻿const express = require('express');
 const router = express.Router();
 const quotes = require('../services/quotes');
+const quotes_page = require('../public/javascripts/quotes-page');
 
 /* GET quotes listing. */
 router.get('/', async function(req, res, next) {
@@ -21,6 +22,9 @@ router.get('/', async function(req, res, next) {
       });
       res.write('</table>');
       res.write('</div>');
+
+      // adding input form
+      res.write(createQuoteForm());
       res.end();
     }
   } catch (err) {
@@ -28,6 +32,18 @@ router.get('/', async function(req, res, next) {
     next(err);
   }
 });
+
+function createQuoteForm(){
+  let parent = '<div style="margin: 10 auto; width: fit-content;">'
+  let form = '<form>';
+  let inputQuote = '<div><label for="quote">Текст цитаты:<label/><br/><textarea id="quote" placeholder="Введите цитату..."></textarea></div>';
+  let inputAuthor = '<div><label for="author">Автор цитаты:<label/><br/><input id="author" placeholder="Введите имя автора..."/></div>';
+  let submitBtn = '<div><button type="button" onclick="' + quotes_page.postQuote() +'"> Сохранить цитату</button></div>'
+  form += inputAuthor + inputQuote + submitBtn + '</form>';
+  parent += form + '</div>';
+  return parent;
+}
+
 
 /* POST quotes */
 router.post('/', async function(req, res, next) {
