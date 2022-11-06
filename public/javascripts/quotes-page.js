@@ -1,11 +1,11 @@
 var http = require("http");
 //var jquery = require('jquery');
-var document = 
+
 
 function postQuote(){
     let sendData = {
-       author: document.getElementById('author'),
-       quote:  document.getElementById('quote')
+       author: null, //document.getElementById('author'),
+       quote: null  //document.getElementById('quote')
     }
     var URLParams = {
       host: 'localhost',
