@@ -4,8 +4,8 @@ var http = require("http");
 
 function postQuote(){
     let sendData = {
-       author: null, //document.getElementById('author'),
-       quote: null  //document.getElementById('quote')
+       author: document.getElementById('author'),
+       quote:  document.getElementById('quote')
     }
     var URLParams = {
       host: 'localhost',
