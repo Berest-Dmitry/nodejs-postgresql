@@ -2,16 +2,16 @@ version: '3.8'
 services:
   app:
     image: node:12-alpine
-    command: sh -c "yarn install && yarn run dev"
+    command: sh -c "npm run start && yarn run dev"
     working_dir: /nodejs-postgresql-master
     ports:
       - "3000:3000"
     volumes:
       - ./:/nodejs-postgresql-master
     environment:
-      - POSTGRES_USER:postgres
-      - POSTGRES_PASSWORD:postgres
-      - POSTGRES_DB:test
+      - POSTGRES_USER:${POSTGRES_USER}
+      - POSTGRES_PASSWORD:${POSTGRES_PASSWORD}
+      - POSTGRES_DB:${POSTGRES_DB}
     depends_on:
       - db
 
@@ -19,9 +19,9 @@ services:
     image: postgres:14.1-alpine
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=test
+      - POSTGRES_USER:${POSTGRES_USER}
+      - POSTGRES_PASSWORD:${POSTGRES_PASSWORD}
+      - POSTGRES_DB:${POSTGRES_DB}
     ports:
       - '5432:5432'
     volumes:
