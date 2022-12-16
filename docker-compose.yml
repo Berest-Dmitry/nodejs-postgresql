@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    image: node:12-alpine
+    image: node:16-alpine
     command: sh -c "npm run start && yarn run dev"
     working_dir: /nodejs-postgresql-master
     ports:

@@ -1,18 +1,59 @@
 {
   
   "name": "nodejs-postgresql",
+  
   "version": "0.0.0",
+  
   "private": true,
+  
   "scripts": {
-    "start": "node ./bin/www"
+  
+    
+  "start": "node ./bin/www",
+  
+    
+  "migrate": "npx sequelize-cli db:migrate",
+  "migrate:down": "npx sequelize-cli db:migrate:undo"
+  
   },
+  
   "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "debug": "^2.6.9",
-    "express": "^4.16.4",
-    "jquery": "^3.6.1",
-    "jsdom": "^20.0.2",
-    "morgan": "^1.9.1",
-    "pg": "^8.8.0"
+  
+    
+  "cookie-parser": "^1.4.6",
+  
+    
+  "db-migrate": "^0.11.13",
+  
+    
+  "db-migrate-mysql": "^2.2.0",
+  
+    
+  "debug": "^2.6.9",
+  
+    
+  "express": "^4.16.4",
+  
+    
+  "jquery": "^3.6.1",
+  
+    
+  "jsdom": "^20.0.2",
+  
+    
+  "morgan": "^1.9.1",
+  
+    
+  "node-pg-migrate": "^6.2.2",
+  
+    
+  "pg": "^8.8.0",
+  
+    
+  "sequelize": "^6.27.0",
+  
+    
+  "typeorm": "^0.3.11"
+  
   }
 }
